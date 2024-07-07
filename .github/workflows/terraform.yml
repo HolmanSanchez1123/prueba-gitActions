@@ -17,14 +17,6 @@ jobs:
           git checkout -b dev
           git push origin dev
 
-      # Aquí puedes agregar pasos adicionales para trabajar en la nueva rama
-      # Por ejemplo, ejecutar comandos de Terraform, realizar cambios, etc.
-
-      - name: Ejecutar comandos de Terraform (ejemplo)
-        run: |
-          terraform init
-          terraform apply --auto-approve
-
       # Ejemplo de cómo añadir un archivo y hacer un commit
       - name: Añadir archivo de prueba y hacer commit
         run: |
