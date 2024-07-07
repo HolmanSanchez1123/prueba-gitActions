@@ -3,7 +3,7 @@ name: Crear y trabajar en nueva rama
 on:
   push:
     branches:
-      - dev  # Ejecutar el flujo de trabajo cuando se haga push a la rama dev
+      - main  # Ejecutar el flujo de trabajo cuando se haga push a la rama dev
 
 jobs:
   crear-rama-y-trabajar:
