@@ -1,0 +1,34 @@
+name: Crear y trabajar en nueva rama
+
+on:
+  push:
+    branches:
+      - dev  # Ejecutar el flujo de trabajo cuando se haga push a la rama dev
+
+jobs:
+  crear-rama-y-trabajar:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Crear nueva rama y cambiar a ella
+        run: |
+          git checkout -b dev
+          git push origin dev
+
+      # Aquí puedes agregar pasos adicionales para trabajar en la nueva rama
+      # Por ejemplo, ejecutar comandos de Terraform, realizar cambios, etc.
+
+      - name: Ejecutar comandos de Terraform (ejemplo)
+        run: |
+          terraform init
+          terraform apply --auto-approve
+
+      # Ejemplo de cómo añadir un archivo y hacer un commit
+      - name: Añadir archivo de prueba y hacer commit
+        run: |
+          echo "Archivo de prueba gitactions" > prueba.txt
+          git add prueba.txt
+          git commit -m "Añadir archivo de prueba en nueva rama"
+          git push origin dev
